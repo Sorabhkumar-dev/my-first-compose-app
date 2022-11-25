@@ -54,6 +54,8 @@ dependencies {
     implementation "androidx.compose.ui:ui:$compose_ui_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
     implementation "androidx.compose.material:material:$compose_ui_version"
+
+    //for testing purpose
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -63,4 +65,11 @@ dependencies {
 
     //navigation
     implementation "androidx.navigation:navigation-compose:$nav_version"
+
+    //showing image in compose
+    implementation "io.coil-kt:coil-compose:$coil_compose_version"
+
+    //compose icons
+    implementation "androidx.compose.material:material-icons-extended:$compose_ui_version"
+
 }

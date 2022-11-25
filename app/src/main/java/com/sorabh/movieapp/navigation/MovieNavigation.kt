@@ -1,7 +1,6 @@
 package com.sorabh.movieapp.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -18,7 +17,7 @@ fun MovieNavigation() {
         }
         composable(
             MovieScreens.DetailsScreen.name + "/{movie}",
-            arguments = listOf(navArgument(name = "movie") { type = NavType.StringType })
+            arguments = listOf(navArgument(name = "movie") {  })
         ) { navBackStackEntry ->
             DetailScreen(navController = navController,navBackStackEntry.arguments?.getString("movie"))
         }
