@@ -56,8 +56,8 @@ fun MainContent(
 ) {
     LazyColumn(modifier = modifier.fillMaxWidth()) {
         items(movies) { movie ->
-            MovieCard(movie = movie) { data ->
-                navController.navigate(MovieScreens.DetailsScreen.name + "/$data")
+            MovieCard(movie = movie) { movieId ->
+                navController.navigate(MovieScreens.DetailsScreen.name + "/$movieId")
             }
         }
     }
@@ -85,7 +85,7 @@ fun MovieCard(
         ),
         rating = "7.9"
     ),
-    onMovieClicked: (Movie) -> Unit = {}
+    onMovieClicked: (String) -> Unit = {}
 ) {
     var expanded by rememberSaveable { mutableStateOf(false) }
     Card(
@@ -93,7 +93,7 @@ fun MovieCard(
             .fillMaxWidth()
             .heightIn(min = 120.dp)
             .padding(horizontal = 12.dp, vertical = 6.dp)
-            .clickable { onMovieClicked(movie) },
+            .clickable { onMovieClicked(movie.id) },
         shape = RoundedCornerShape(corner = CornerSize(8.dp))
     ) {
         Row(
