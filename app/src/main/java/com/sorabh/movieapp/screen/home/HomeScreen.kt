@@ -12,7 +12,6 @@ import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.sorabh.movieapp.navigation.MovieScreens
@@ -26,8 +25,7 @@ fun HomeScreen(navController: NavController) {
             Text(
                 "Movies",
                 modifier = Modifier.padding(start = 10.dp),
-                fontWeight = FontWeight.SemiBold,
-                fontSize = MaterialTheme.typography.h6.fontSize
+                style = MaterialTheme.typography.h6
             )
         }
     }) { innerPadding ->
@@ -55,8 +53,8 @@ fun MainContent(
 ) {
     LazyColumn(modifier = modifier.fillMaxWidth()) {
         items(movies) { movie ->
-            MovieCard(movie = movie) { movie ->
-                navController.navigate(MovieScreens.DetailsScreen.name)
+            MovieCard(movie = movie) { data ->
+                navController.navigate(MovieScreens.DetailsScreen.name+"/$data")
             }
         }
     }
